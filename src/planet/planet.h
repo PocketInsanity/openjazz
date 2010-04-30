@@ -24,15 +24,27 @@
 #define _PLANET_H
 
 
+#include "io/gfx/sprite.h"
+
+#include <SDL/SDL.h>
+
+
 // Class
 
 class Planet {
 
-	public:
-		Planet   (char * fileName);
-		~Planet  ();
+	private:
+		SDL_Color palette[256];
+		Sprite    sprite;
+		char*     name;
+		int       id;
 
-		int play ();
+	public:
+		Planet  (char * fileName, int previous);
+		~Planet ();
+
+		int getId ();
+		int play  ();
 
 };
 
